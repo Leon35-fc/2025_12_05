@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CustomNavbar from './components/CustomNavbar';
 import News from './components/News';
 import Footer from './components/Footer';
+import Player from './components/Player';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <News />
           </Col>
           <Col xs={12}>
+            <Player/>
             <Footer />
           </Col>
         </Row>
