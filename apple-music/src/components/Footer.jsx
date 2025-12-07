@@ -12,11 +12,11 @@ const Footer = function () {
 
   return (
     <>
-      <Container className="text-light fs-6 m-0 p-0 vstack">
-        <footer className="me-4">
+      <Container className="fs-6 display-6 fw-normal text-info m-0 p-0 vstack">
+        <footer className="me-4 px-4 py-3">
           <Row className="container-fluid">
             <Col xs={12}>
-              <p>Italia | English UK</p>
+              <p><span className='text-light'>Italia</span> | English UK</p>
             </Col>
             <Col xs={12}><p>Copyright &copy; 2024 Apple Inc. Tutti i diritti riservati.</p></Col>
             {opt.map((song, i) => {

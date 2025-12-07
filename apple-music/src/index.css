@@ -91,7 +91,9 @@ nav svg {
   color: #fff !important;
 }
 
-.form-range::-webkit-slider-runnable-track {
+input.form-range::-webkit-slider-runnable-track {
+  appearance: none;
+  height: 6px;
   background: linear-gradient(
     to right,
     #4caf50 0%,
@@ -100,7 +102,9 @@ nav svg {
     #ccc 100%
   ) !important;
 }
-.form-range::-moz-range-progress {
+input.form-range::-moz-range-progress {
+  appearance: none;
+  height: 6px;
   background: linear-gradient(
     to right,
     #4caf50 0%,
