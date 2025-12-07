@@ -3,10 +3,12 @@ import { FaChevronRight } from 'react-icons/fa';
 
 const Other = function () {
 
-    const options = ['Esplora per genere',
+    const options = [
+        'Esplora per genere',
         'Decenni',
         'Attività e stati d\'animo',
-        'Worldwide','Classiche', 
+        'Worldwide',
+        'Classiche', 
         'Audio spaziale',
         'Video musicali',
         'Nuovi artisti',

@@ -1,24 +1,63 @@
 import { Container, Row, Col, Form, Button} from "react-bootstrap";
-import { BsFillPlayFill, BsFillRewindFill, BsFastForwardFill, BsApple, BsFillVolumeMuteFill, } from "react-icons/bs";
+import { BsFillPlayFill, 
+        BsFillRewindFill,
+        BsFastForwardFill, 
+        BsApple, 
+        BsFillVolumeMuteFill, 
+        BsFillVolumeOffFill, 
+        BsFillVolumeDownFill,
+        BsFillVolumeUpFill,
+        BsFillPersonFill } from "react-icons/bs";
 import {FaShuffle} from 'react-icons/fa6'
 import { PiArrowsClockwiseBold } from "react-icons/pi";
+import { useState } from "react";
 
 const Player = function () {
 
-const myValue = function (e){
+const [slider, setSliderValue] = useState(50);
+const [sliderPrev, setSliderPrevValue] = useState();
+const [mute, setMute] = useState(false);
+
+const handleChange = function (e){
   console.log(e.target.value);
-  
+  return setSliderValue(e.target.value)
 }
 
-// const volumeIcon = function() {
-//   switch (a){
-//     case 0:
-//       return <BsFillVolumeMuteFill />;
-//     case 1:
-//       return 
+const handleMute = function (e){
+  console.log(e.target);
+  const rangeSlider = document.querySelector('.form-range')
+  console.log('Il rangeSlider', rangeSlider.value);
+    if (mute && slider==0) {
+    console.log('Slider prima di cambio parametri', slider);
+    
+    
+    setMute(false)
+    setSliderValue(sliderPrev)
+    rangeSlider.value = sliderPrev
+    console.log('I\'m on',sliderPrev)
+    
+  } else {
+    setSliderPrevValue(slider)
+    setMute(true)
+    setSliderValue(0)
+    console.log('I\'m mute ', sliderPrev)
+  }
+}
 
-//   }
-// }
+const volumeIcon = function(a) {
+  a = Math.ceil(slider / 34)
+  // console.log( 'A vale: ',a)
+  switch(a){
+    case 0:
+      return <BsFillVolumeMuteFill/>
+    case 1: 
+      return <BsFillVolumeOffFill/>
+    case 2:
+      return <BsFillVolumeDownFill/>
+    case 3:
+      return <BsFillVolumeUpFill/>
+  } 
+}
 
   return(
     <>
@@ -34,10 +73,17 @@ const myValue = function (e){
             </Row>
           </Col>
           <Col className="flex-grow-1 bg-info text-light text-center p-2"><BsApple/></Col>
-          <Col><Form.Range className="p-1" /></Col>
-          <Col><Button className="btn btn-danger ">Accedi</Button></Col>
+          <Col className="d-flex flex-row align-items-center"><button className="bg-transparent border-0 d-flex fs-2 text-start" onClick={handleMute}>{volumeIcon()}</button>
+          <Form.Range className="form-range p-1" min="0"
+        max="100"
+        value={slider}
+        onChange={handleChange}
+        style={{ '--value': `${slider}%` }}/>
+      </Col>
+          <Col><Button className="btn btn-danger d-flex align-items-center fw-semibold"><BsFillPersonFill className="text-light fs-5 me-2" />Accedi</Button></Col>
         </Row>
       </Container>
+      
     </>
   )
 }

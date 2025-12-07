@@ -67,19 +67,19 @@ button:focus-visible {
   }
 } */
 
-#root{
-  background-color: #1f1f1f !important
+#root {
+  background-color: #1f1f1f !important;
 }
 
 nav.px-0.navbar {
   background-color: #2e2e2e !important;
 }
 
-hr{
+hr {
   border: 1px solid rgb(255, 253, 253);
 }
 
-footer{
+footer {
   background-color: #323232 !important;
 }
 
@@ -87,6 +87,37 @@ svg {
   color: #757575 !important;
 }
 
-nav svg{
+nav svg {
   color: #fff !important;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 var(--value),
+    #c9b5b5 var(--value),
+    #ccc 100%
+  ) !important;
+}
+.form-range::-moz-range-progress {
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 var(--value),
+    #c9b5b5 var(--value),
+    #ccc 100%
+  ) !important;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #3dadc1;
+}
+
+.form-range::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #3dadc1;
 }
