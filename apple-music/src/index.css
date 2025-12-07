@@ -68,11 +68,11 @@ button:focus-visible {
 } */
 
 #root{
-  background-color: rgba(var(--bs-dark-rgb))
+  background-color: #1f1f1f !important
 }
 
 nav.px-0.navbar {
-  background-color: #343a40 !important;
+  background-color: #2e2e2e !important;
 }
 
 hr{
@@ -80,5 +80,13 @@ hr{
 }
 
 footer{
-  background-color: #343a40
+  background-color: #323232 !important;
+}
+
+svg {
+  color: #757575 !important;
+}
+
+nav svg{
+  color: #fff !important;
 }

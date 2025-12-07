@@ -42,8 +42,19 @@
 } */
 
 @media screen and (min-width: 994px) {
+
   nav {
   height: 100%;
+  }
+
+  .new-entries{
+    width: 20% !important;
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .new-entries{
+    width: 30% !important;
   }
 }
 
