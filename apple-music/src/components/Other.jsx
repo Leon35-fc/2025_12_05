@@ -1,4 +1,4 @@
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { FaChevronRight } from 'react-icons/fa';
 
 const Other = function () {
@@ -20,7 +20,7 @@ const Other = function () {
         <Row className='flex-lg-wrap justify-content-between mb-3'>
         {options.map((other, index) => {
             return(
-            <Col xs={12} lg={3}className='bg-dark-subtle rounded-3 m-0 hstack justify-content-between mt-3 me-1 flex-grow-1' key={index}>
+            <Col xs={12} lg={3}className='others-color rounded-3 m-0 hstack justify-content-between mt-3 me-1 flex-grow-1' key={index}>
                 <p className='text-danger m-0 p-2'>{other}</p>
                 <FaChevronRight className='fs-5 align-middle'/>
             </Col>)})}

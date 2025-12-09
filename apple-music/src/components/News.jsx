@@ -7,7 +7,7 @@ import Player from "./Player"
 const News = function() {
     return(
         <>
-            <Player/>
+            <Player className='d-none d-lg-block '/>
             <h1 className="text-white fw-semibold display-2 ">Novità</h1>
             <hr />
             <NewRadioStations/>

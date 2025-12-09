@@ -8,22 +8,24 @@ import {
   BsFillVolumeOffFill,
   BsFillVolumeDownFill,
   BsFillVolumeUpFill,
-  BsFillPersonFill
+  BsMusicNoteBeamed
 } from 'react-icons/bs';
 import { FaShuffle } from 'react-icons/fa6';
 import { PiArrowsClockwiseBold } from 'react-icons/pi';
 import { useState } from 'react';
 
-const Player = function () {
+const PlayerMobile = function () {
   const [slider, setSliderValue] = useState(50);
   const [sliderPrev, setSliderPrevValue] = useState();
   const [mute, setMute] = useState(false);
 
+    //Per memorizzare il valore dello slider quando varia
   const handleChange = function (e) {
     console.log(e.target.value);
     return setSliderValue(e.target.value);
   };
 
+    //Per memorizzare e gestire lo stato di 'mute'
   const handleMute = function (e) {
     console.log(e.target);
     const rangeSlider = document.querySelector('.form-range');
@@ -42,7 +44,8 @@ const Player = function () {
       console.log("I'm mute ", sliderPrev);
     }
   };
-
+    //Il valore dello slider viene diviso per 34 e arrotondato, restituendo un numero intero da 0 a 3 che (a seconda del caso)
+    // diventa una diversa icona del volume    
   const volumeIcon = function (a) {
     a = Math.ceil(slider / 34);
     // console.log( 'A vale: ',a)
@@ -60,22 +63,13 @@ const Player = function () {
 
   return (
     <>
-      <Container className="d-none d-lg-block text-info-emphasis">
-        <Row className="row-cols-6 align-items-center m-1">
-          <Col>
-            <Row className="row-cols-5 fs-5 px-4 g-0">
-              <FaShuffle />
-              <BsFillRewindFill />
-              <BsFillPlayFill style={{scale: '1.6'}}/>
-              <BsFastForwardFill />
-              <PiArrowsClockwiseBold />
-            </Row>
-          </Col>
-          <Col className="flex-grow-1 bg-info text-light text-center p-2">
-            <BsApple />
+      <Container className="d-lg-none fixed-bottom text-info-emphasis bg-dark rounded rounded-3  mb-2">
+        <Row className="row-cols-3 align-items-center m-1 py-2">
+          <Col className='fs-5'>
+            <span className='bg-dark px-2 py-1 rounded rounded-2 border border-1 border-dark-subtle' id='note-beam'><BsMusicNoteBeamed/></span>
           </Col>
           <Col className="d-flex flex-row align-items-center justify-content-center">
-            <button
+            {/* <button
               className="bg-transparent border-0 fs-2 d-flex"
               onClick={handleMute}
             >
@@ -88,18 +82,19 @@ const Player = function () {
               value={slider}
               onChange={handleChange}
               style={{ '--value': `${slider}%` }}
-            />
+            /> */}
           </Col>
-          <Col>
-            <Button className="btn btn-danger d-flex align-items-center fw-semibold px-3 ms-2">
-              <BsFillPersonFill className="text-light fs-5 me-3" />
-              Accedi
-            </Button>
-          </Col>
+          <Row className="row-cols-5 flex-row-reverse fs-5 g-0">
+              {/* <FaShuffle /> */}
+              {/* <BsFillRewindFill /> */}
+              <BsFastForwardFill />
+              <BsFillPlayFill style={{scale: '1.6'}}/>
+              {/* <PiArrowsClockwiseBold /> */}
+            </Row>
         </Row>
       </Container>
     </>
   );
 };
 
-export default Player;
+export default PlayerMobile
